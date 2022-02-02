@@ -1,29 +1,13 @@
 
-
 apiVersion: v1
-kind: PersistentVolume
+data:
+  host: db
+  port: "8080"
+kind: ConfigMap
 metadata:
-  name: mysql-pv-volume
-  labels:
-    type: local
-spec:
-  storageClassName: manual
-  capacity:
-    storage: 20Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/mnt/data"
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mysql-pv-claim
-spec:
-  storageClassName: manual
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 20Gi
-
+  creationTimestamp: "2020-03-21T08:49:30Z"
+  name: db-config
+  namespace: demo
+  resourceVersion: "1473"
+  selfLink: /api/v1/namespaces/demo/configmaps/db-config
+  uid: 64e740ac-abb3-42e6-a98e-9e1585f3b57f
